@@ -1,0 +1,34 @@
+#!/bin/bash
+
+working_dir=$PWD
+
+# BINARY LOCATION (RELEASE)
+
+bdh_linked_list="$working_dir/../Release/Experiments/bdh_linked_list"
+
+# GRAPH INSTANCES
+
+declare -a graphs=("R10_0-5" "R20_0-5" "R40_0-5" "R80_0-5" "R160_0-5" "R320_0-5")
+
+# ARGUMENTS
+
+k=3
+t=1000
+seed=1
+
+# MEASURE DURATION, CLOCK CYCLES, CACHE-MISSES, BRANCH-MISSES, CONTEXT-SWITCHES
+
+measurements="duration_time,cycles:uk,cache-misses:uk,branch-misses:uk,context-switches:uk"
+
+for graph in ${graphs[@]}
+do
+  outfile="measurements_bdh_linked_list_${graph}_${k}_${t}_${seed}.txt"
+  echo $measurements &>> $outfile
+  for i in {1..100}
+  do
+    echo taking bdh_linked_list measurements for $graph [$i/100]
+    (perf stat -x, -e $measurements -- sudo nice -n -5 taskset -c 0 $bdh_linked_list "$working_dir/Graph Instances/Random/$graph.g6" $k $t $seed >/dev/null) \
+      2>&1 | awk -F, '{printf("%s,", $1)}' &>> $outfile
+    echo "" &>> $outfile
+  done
+done

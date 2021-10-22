@@ -1,0 +1,27 @@
+#!/bin/bash
+
+working_dir=$PWD
+
+# BINARY LOCATION (RELEASE)
+
+bdh_linked_list="$working_dir/../Debug/Experiments/bdh_linked_list"
+
+# GRAPH INSTANCES
+
+declare -a graphs=("R10_0-5" "R20_0-5" "R40_0-5" "R80_0-5" "R160_0-5" "R320_0-5")
+
+# ARGUMENTS
+
+k=4
+t=2000
+seed=1
+
+for graph in ${graphs[@]}
+do
+  outfile="convergence_bdh_linked_list_${graph}_${k}_${t}_${seed}.txt"
+  for i in {1..$t}
+  do
+    echo measuring bdh_linked_list convergence for $graph [$i/$t]
+    $bdh_linked_list "$working_dir/Graph Instances/Random/$graph.g6" $k $t $seed > $outfile
+  done
+done

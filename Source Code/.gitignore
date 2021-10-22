@@ -1,0 +1,8 @@
+build/**
+!BDH (Extensor-Coding)
+!BLSZ (Divide-And-Color)
+!Experiments
+!Boost
+!.gitignore
+!CMakeLists.txt
+!README.md

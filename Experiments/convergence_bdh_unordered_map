@@ -1,0 +1,27 @@
+#!/bin/bash
+
+working_dir=$PWD
+
+# BINARY LOCATION (RELEASE)
+
+bdh_unordered_map="$working_dir/../Debug/Experiments/bdh_unordered_map"
+
+# GRAPH INSTANCES
+
+declare -a graphs=("R10_0-5" "R20_0-5" "R40_0-5" "R80_0-5" "R160_0-5" "R320_0-5")
+
+# ARGUMENTS
+
+k=3
+t=2000
+seed=1
+
+for graph in ${graphs[@]}
+do
+  outfile="convergence_bdh_unordered_map_${graph}_${k}_${t}_${seed}.txt"
+  for i in {1..$t}
+  do
+    echo measuring bdh_unordered_map convergence for $graph [$i/$t]
+    $bdh_unordered_map "$working_dir/Graph Instances/Random/$graph.g6" $k $t $seed > $outfile
+  done
+done

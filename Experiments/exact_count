@@ -1,0 +1,25 @@
+#!/bin/bash
+
+working_dir=$PWD
+
+# BINARY LOCATION (RELEASE)
+
+blsz="$working_dir/../Release/Experiments/Release/blsz_exact"
+
+# GRAPH INSTANCES
+
+declare -a graphs=("R10_0-5" "R20_0-5" "R40_0-5" "R80_0-5" "R160_0-5" "R320_0-5")
+#declare -a graphs=("K10" "K20" "K40" "K80" "K160" "K320")
+
+# ARGUMENTS
+
+k=3
+t=2000
+seed=1
+
+for graph in ${graphs[@]}
+do
+  outfile="blsz_exact_${graph}_${k}_${t}_${seed}.txt"
+  echo running blsz_exact for $graph
+  $blsz "$working_dir/Graph Instances/Random/$graph.g6" $k $t $seed > $outfile
+done
