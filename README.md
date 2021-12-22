@@ -11,7 +11,7 @@ The problem of counting all paths of length k exactly is proven to be #W[1]-hard
         <th>Algorithm</th>
         <th>Technique</th>
         <th>Time</th>
-        <th>Error</th>
+        <th>ε<sup>-1</sup></th>
         <th>Space</th>
     </tr>
     <tr>
