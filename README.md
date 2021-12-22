@@ -16,7 +16,7 @@ The problem of counting all paths of length k exactly is proven to be #W[1]-hard
     <tr>
         <td>BDH</td>
         <td>Extensor Coding</td>
-        <td>4<sup>k</sup>n<sup>O(k)m<sup></td>
+        <td>4<sup>k</sup>n<sup>O(k)<sup>m</td>
         <td>exponential</td>
     </tr>
         <td>BLSZ</td>
