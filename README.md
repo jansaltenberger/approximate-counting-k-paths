@@ -26,8 +26,6 @@ The problem of counting exactly all paths of length k is proved to be #W[1]-hard
   </tr>
 </table>
 
-
-## Implementation
 The repository contains a total of four different implementations, two for each algorithm. 
 
 ```.
