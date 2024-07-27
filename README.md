@@ -1,5 +1,5 @@
 ## Introduction
-This repository contains two implementations of FPT algorithms for approximately counting the number of k-paths in a graph. One algorithm is by Brand, Dell and Husfeldt (BDH), the other by Björklund, Lokshtanov, Saurabh and Zehavi (BLSZ). 
+This repository contains implementations of FPT algorithms for approximately counting the number of k-paths in a graph. One algorithm is by Brand, Dell and Husfeldt (BDH), the other by Björklund, Lokshtanov, Saurabh and Zehavi (BLSZ). 
 
 The problem of counting exactly all paths of length k is proved to be #W[1]-hard. This implies that it cannot be solved in f(k)n<sup>O(1)</sup> for any computable function f and constant c. The problem of approximately counting k-paths, on the other hand, is fixed-parameter tractable and can be solved in f(k)n<sup>O(1)</sup>-time.
 
